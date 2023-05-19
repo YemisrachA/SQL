@@ -1,0 +1,46 @@
+
+
+CREATE TABLE ET_BIKES (Id Integer primary key,
+		                   Name text,
+		                   Bike_type text,
+	                     Warranty integer,
+                       Price integer);
+
+
+INSERT INTO ET_BIKES VALUES (1, "Specialized", "Mountain Bike",24,1000);
+INSERT INTO ET_BIKES VALUES (2, "Trek", "Cruzer Bike", 24 ,1050);
+INSERT INTO ET_BIKES VALUES (3, "Giant", "Mountain Bike",18, 900);
+INSERT INTO ET_BIKES VALUES (4, "Santa Cruz", "City Bike",24,2000);
+INSERT INTO ET_BIKES VALUES (5, "Canyon", "Road Bike",12,800);
+INSERT INTO ET_BIKES VALUES (6, "Yeti", "Road Bike",12,860);
+INSERT INTO ET_BIKES VALUES (7, "Pivot", "Road Bike",12,890);
+INSERT INTO ET_BIKES VALUES (8, "Cannnondale", "Road Bike",12,190);
+INSERT INTO ET_BIKES VALUES (9, "Commencal", "Hybrid Bike",12,180);
+INSERT INTO ET_BIKES VALUES (10, "Devinci", "Cruiser Bike",12,150);
+INSERT INTO ET_BIKES VALUES (11, "DiamondBack", "Fitness Bike",12,780);
+INSERT INTO ET_BIKES VALUES (12, "Evil", " Adventure Road Bike",12,200);
+INSERT INTO ET_BIKES VALUES (13, "Fezzari", "Touring Bike",12,570);
+INSERT INTO ET_BIKES VALUES (14, "Ghost", "Touring Bike",12,560);
+INSERT INTO ET_BIKES VALUES (15, "GT", " Adventure Road Bike",6,780);
+
+--Displaying all the data stored in the ET_Bikes  database
+      select * from ET_Bikes;
+
+-- Display the sum of the prices of bikes
+        select sum(Price)from ET_Bikes;
+
+-- Display the maximum price of bikes
+        select max(price) from ET_Bikes;
+
+-- Display the average warranty month of the bikes
+        select avg(warranty) from ET_Bikes;
+
+-- Display the minimum warranty month of the bikes
+        Select min(warranty) from Et_bikes;
+
+-- Display the sum of the prices grouped by the warranty 
+        Select warranty,sum(price) from ET_Bikes group by warranty;
+
+
+
+
