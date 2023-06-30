@@ -1,0 +1,45 @@
+/* This project utilized data from the Netflix database stored at http://sqlfiddle.com/#!17/7dae0/16/0 */
+
+
+/* Joining two tables*/
+select  a.show_id,
+        a.director,
+        a.cast,
+        b.type,
+        b.title,
+        b.country,
+        b.date_added,
+        b.release_year,
+        b.rating,
+        b.duration,
+        b.listed_in
+        from "netflix_people" as a
+left join "netflix_titles_info" as b
+on a.show_id = b.show_id
+
+/*How many movie titles are there in the database? (movies only, not tv shows)*/
+
+select count(*) from "netflix_titles_info" 
+where type = 'Movie'
+
+/*When was the most recent batch of tv shows and/or movies added to the database?*/
+
+select max(date(date_added)) from "netflix_titles_info"
+
+/*List all the movies and tv shows in alphabetical order.*/
+
+select * from "netflix_titles_info" order by title asc
+
+/*Who was the Director for the movie The Starling?*/
+
+select director
+        from"netflix_titles_info" title 
+       left join "netflix_people" people
+ on title.show_id = people.show_id
+ where title = 'The Starling'
+
+/*What is the oldest movie in the database and what year was it made?*/
+
+select title, release_year from "netflix_titles_info"
+where type = 'Movie'
+order by release_year asc limit 1
